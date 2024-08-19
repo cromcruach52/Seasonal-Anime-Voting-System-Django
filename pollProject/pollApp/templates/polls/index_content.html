@@ -1,0 +1,23 @@
+{% load static %}
+
+ <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+<div id="question-content">
+    {% if latest_question_list %}
+        {% for question in latest_question_list %}
+        <div class="card-mb-3 text-center" style="background-image: url('{{ question.image }}');">
+                <div class="card-body">
+                    <p class="lead">{{ question.question_text }}</p>
+                    
+                    {% if question.is_any_season_active %}
+                        <a href="{% url 'polls:detail' question.id %}" class="btn btn-primary btn-sm">Vote Now!</a>
+                    {% else %}
+                        <a href="{% url 'polls:results' question.id %}" class="btn btn-secondary btn-sm">Results!</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No polls available</p>
+    {% endif %}
+</div>

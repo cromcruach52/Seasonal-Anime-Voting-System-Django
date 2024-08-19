@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<div class="card text-center">  
+    
+    <div class="card-body" > 
+       <h1> SEASONAL ANIME POLL </h1>
+    <p>Vote for your favourite anime now!</p>
+    <a class="btn btn-dark" href = "{% url 'polls:index' %}"> 
+        View Available Polls! </a>   
+    </div>
+</div>
+{% endblock %}

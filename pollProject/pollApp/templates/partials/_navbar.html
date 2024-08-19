@@ -1,0 +1,18 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<nav class="navbar navbar-dark bg-transparent mb- navbar-custom">
+    <div class="container">
+        <a href="{% url 'index' %}"><img src="{% static 'images/logo-transparent.png' %}" alt="Logo" style="width:300px; height:auto"></a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                {% if user.is_authenticated %}
+                    <a class="nav-link" href="{% url 'accounts:logout' %}">
+                        <button class="btn btn-dark">Logout</button>
+                    </a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+</nav>

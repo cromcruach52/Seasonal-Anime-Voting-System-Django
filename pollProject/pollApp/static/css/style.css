@@ -1,0 +1,248 @@
+.body-content {
+    background-color: #fff; 
+    color: #333; 
+    margin: 0 auto;
+    max-width: 80%;
+    padding: 2%;
+}
+
+
+/* static/polls/css/styles.css */
+.voting-body{
+    background-color: #fff; 
+    color: #333; 
+}
+ 
+.index-container{
+    background-color: #7de4d337; 
+    color: #131010; 
+    padding: 3%;
+    margin-top: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.card-mb-3 {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 150px; 
+    margin-top: 2%;
+    position: relative; 
+}
+
+.card-body {
+    background-color: rgba(77, 73, 76, 0.6);
+    color: aliceblue;
+    position: absolute;
+    width: 100%;
+    margin-top:20px
+}
+
+/* categories table */
+.category-statistics h2,
+.top-shows h2 {
+    text-align: center;
+}
+
+.category-select {
+    margin-bottom: 20px;
+}
+
+.category {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Adjusted for better spacing */
+    margin-bottom: 40px;
+}
+
+.season {
+    flex-basis: calc(25% - 10px); /* Adjusted to fit 4 seasons in a row */
+    margin-bottom: 20px;
+    border: 1px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.season .question {
+    flex-basis: 100%;
+}
+
+.question {
+    flex-basis: calc(33% - 10px);
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse; /* table borders */
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd; /* Changed border */
+}
+
+.top-shows-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.show-entry {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 10px;
+    padding: 10px;
+    width: 280px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.show-image {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.show-details {
+    margin-top: 10px;
+}
+
+.category-statistics{
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+/*Top_Shows*/
+
+.category-name {
+    color: #0e0e0e;
+    text-align: center; /* Center the text */
+    font-size: 40px;
+    margin-bottom: 30px; /* font size */
+    /* Add any other styles you want here */
+}
+
+.top-shows-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 20px;
+}
+
+.show-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 4px;
+    margin: 10px;
+    padding: 10px;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background: #f5f5f5; 
+}
+
+.show-image {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.show-details {
+    margin-top: 10px;
+}
+
+.choice-label {
+    font-size: 24px; 
+    font-weight: bold; 
+    margin-bottom: 5px;
+}
+
+.show-details h3 {
+    margin: 5px 0;
+}
+
+.show-details p {
+    margin: 5px 0; 
+}
+
+
+
+/* Navbar styles */
+.container {
+    padding:2%; 
+    background-color: rgba(236, 255, 250, 0.972)
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    color: #333;
+}
+
+.navbar-custom .navbar-nav .nav-link:hover {
+    color: #666;
+}
+
+
+/* For choices */
+.choice-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; 
+}
+
+.choice-image {
+    width: 100px;
+    height: 150px; 
+    object-fit: cover;
+    margin-right: 10px; 
+}
+
+#chart {
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid #928f8f; 
+  }
+
+#pieChart {
+    max-height: 330px;
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid #928f8f;
+  }
+
+#pieChartData {
+    color: #928f8f;
+    font-size: 20px;
+    text-align: center;
+  }
+  
+/*
+FOR WALLPAPER
+body {
+    background-image: url('/static/images/winter_background2.jpg');  
+    background-size: cover;  
+    background-position: center;  
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);  ---Adjust the darkness by changing the alpha value (0.5 is 50% opacity) 
+    z-index: -1;  ---Place the overlay behind the content
+} */

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body class="voting-body">
+    <div class="index-container">
+            {% block selected_info %}
+                <h1 id="selectedInfo" class="text-center mb-3" style="margin:30px">
+                    {{ selected_season }} {{ selected_year }} 
+                </h1>
+            {% endblock %}
+
+            <form method="get" action="{% url 'polls:index' %}" id="filterForm">
+                {% include 'polls/index_seasons.html' %}
+                <label for="year">Choose a year:</label>
+                <select name="year" id="year">
+                    {% for y in years_range %}
+                        <option value="{{ y }}" {% if y == selected_year %}selected{% endif %}>{{ y }}</option>
+                    {% endfor %}
+                </select>
+            </form>
+
+            {% include 'polls/index_content.html' %}
+
+            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                    
+                    $('#filterForm').change(function () {
+                        
+                        var formData = $('#filterForm').serialize();
+
+                        $.ajax({
+                            type: 'GET',
+                            url: '{% url "polls:index" %}',
+                            data: formData,
+                            success: function (data) {
+            
+                                $('#question-content').html($(data).find('#question-content').html());
+
+            
+                                $('#season').html($(data).find('#season').html());
+
+                                $('#selectedInfo').html($(data).find('#selectedInfo').html());
+                            },
+                            error: function () {
+                                console.error('Error updating content');
+                            }
+                        });
+                    });
+                });
+            </script>
+    </div>
+</body>
+
+{% endblock %}

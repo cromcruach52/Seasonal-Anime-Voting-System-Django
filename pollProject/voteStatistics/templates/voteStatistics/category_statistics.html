@@ -1,0 +1,77 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <form method="get">
+        <select name="category" onchange="this.form.submit()" class="category-select">
+            <option value="">--Select Category--</option>
+            
+            {% for category in all_categories %}
+                <option value="{{ category }}" {% if category == selected_category %}selected{% endif %}>{{ category }}</option>
+            {% endfor %}
+        </select>
+    </form>
+    
+    {% for category, seasons in categories.items %}
+        <div class="category-statistics">
+            <h2 class="category-name">{{ category.name }} of {% now "Y" %}</h2>
+            <div class="category">
+                {% for season, data in seasons.items %}
+                    <div class="season">
+                        <h3>Season: {{ season.name }}</h3>
+                        <div class="question-grid">
+                            {% for question_data in data.questions %}
+                                <div class="question" >
+                                    <p>Total votes: {{ question_data.total_votes }}</p>
+                                    <table>
+                                        <tr>
+                                            <th>Choice Text</th>
+                                            <th>Votes</th>
+                                            <th>{{ season.name }} Weight</th>
+                                            <th>Weighted Score</th>
+                                        </tr>
+                                        {% for vote in question_data.choice_votes|dictsortreversed:"weighted_score" %}
+                                            <tr>
+                                                <td>{{ vote.choice__choice_text }}</td>
+                                                <td>{{ vote.total_votes }}</td>
+                                                <td>{{ vote.season_weight|floatformat:2 }}</td>
+                                                <td>{{ vote.weighted_score|floatformat:2 }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
+    {% for category, top_shows in top_shows_by_category.items %}
+    <div class="top-shows">
+        <h2>{{ category.name }} of 2023</h2>
+        <div class="top-shows-container">
+            <ul class="show-list">
+                {% for show in top_shows %}
+                    <li class="show-entry {% if forloop.counter == 1 %}gold{% elif forloop.counter == 2 %}silver{% elif forloop.counter == 3 %}bronze{% endif %}">
+                        <label for="choice{{ forloop.counter }}" class="choice-label">
+                            <img src="{{ show.choice_image }}" alt="{{ show.choice_text }}" class="choice-image" />
+                            {{ show.choice_text }}
+                        </label>
+                        <div class="show-details">
+                            <h3>{{ show.show }}</h3>
+                            <p>Weighted Score: {{ show.weighted_score|floatformat:2 }}</p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}

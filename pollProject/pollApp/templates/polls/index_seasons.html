@@ -1,0 +1,6 @@
+<label for="season">Choose a season:</label>  
+<select name="season" id="season">
+    {% for season in seasons %}  {# Update variable name #}
+        <option value="{{ season.id }}" {% if season.name == selected_season %}selected{% endif %}>{{ season.name }}</option>
+    {% endfor %}
+</select>

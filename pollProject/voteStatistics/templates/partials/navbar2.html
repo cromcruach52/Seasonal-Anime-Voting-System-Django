@@ -1,0 +1,21 @@
+{% load static %}
+<nav class="navbar navbar-dark bg-transparent mb- navbar-custom">
+    <div class="container">
+        <a href="{% url 'index' %}"><img src="{% static 'images/logo-black.png' %}" alt="Logo" style="width:300px; height:auto"></a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'voteStatistics:vote_statistics' %}">See Charts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'admin:index' %}">Back to Admin</a>
+            </li>
+            <li class="nav-item">
+                {% if user.is_authenticated %}
+                    <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
